@@ -1,0 +1,15 @@
+# Dataset directories and files
+dataset/
+datasets/
+data/
+raw_data/
+processed_data/
+*.csv
+*.tsv
+*.json
+*.h5
+*.hdf5
+*.parquet
+*.pkl
+*.npy
+*.npz
