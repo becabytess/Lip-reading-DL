@@ -6,7 +6,8 @@ A custom implementation of the research paper "LipNet: End-to-End Sentence-level
 
 This repository contains a reproduction of the LipNet architecture as described in the original research paper [LipNet: End-to-End Sentence-level Lipreading](https://arxiv.org/abs/1611.01599) by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas. The model has approximately 20M parameters, comparable to the original implementation, and uses a combination of 3D convolutional neural networks and a custom LSTM implementation to recognize spoken words from video frames of lip movements.
 
-![LipNet Architecture](path_to_diagram.png)
+![Modifed LipNet Architecture](![Alt text](arc.png)
+
 *Architecture diagram will be added here*
 
 ## Research Implementation
