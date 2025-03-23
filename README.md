@@ -4,11 +4,10 @@ A custom implementation of the research paper "LipNet: End-to-End Sentence-level
 
 ## Overview
 
-This repository contains a reproduction of the LipNet architecture as described in the original research paper [LipNet: End-to-End Sentence-level Lipreading](https://arxiv.org/abs/1611.01599) by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas. The model has approximately 20M parameters, comparable to the original implementation, and uses a combination of 3D convolutional neural networks and a custom LSTM implementation to recognize spoken words from video frames of lip movements.
+This repository contains my reproduction of the LipNet architecture as described in the original research paper [LipNet: End-to-End Sentence-level Lipreading](https://arxiv.org/abs/1611.01599) by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas. The model features an impressive 20 million trainable parameters, making it a substantial deep learning system capable of processing complex visual speech patterns. My implementation combines 3D convolutional neural networks and a custom LSTM implementation to recognize spoken words from video frames of lip movements.
 
 ![Modifed LipNet Architecture](arc.png)
 
-*Architecture diagram will be added here*
 
 ## Research Implementation
 
@@ -18,6 +17,8 @@ This project faithfully reproduces the architecture described in the paper while
 - Spatiotemporal convolutions for visual feature extraction
 - Bidirectional recurrence for sequential modeling
 - CTC loss for sequence prediction without explicit alignment
+
+I made the deliberate choice to implement LSTM cells instead of the GRU cells used in the original paper, as I wanted to explore the full capabilities of LSTM's memory mechanisms in the context of lipreading. This modification maintains the bidirectional sequence processing while potentially offering enhanced memory retention for longer sequences.
 
 ## Model Architecture
 
@@ -57,6 +58,8 @@ The model is trained on a dataset of lip-reading videos and corresponding text a
 │   ├── videos/       # Video files organized by speaker
 │   └── alignments/   # Text alignment files
 ├── main.py           # Main training script
+├── explore/
+│   └── explore.ipynb # Jupyter notebook with detailed training process
 └── README.md         # Project documentation
 ```
 
