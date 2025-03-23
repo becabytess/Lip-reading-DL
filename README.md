@@ -8,6 +8,33 @@ This repository contains my reproduction of the LipNet architecture as described
 
 ![Modifed LipNet Architecture](arc.png)
 
+## Dataset
+
+The model is trained on the GRID Audio-Visual Speech Corpus, a large multitalker audiovisual dataset designed for speech perception studies. The dataset consists of high-quality audio and video recordings of 1000 sentences spoken by 34 different speakers.
+
+### Downloading the Dataset
+
+The dataset is available on Zenodo and can be downloaded from:
+[GRID Audio-Visual Speech Corpus](https://zenodo.org/records/3625687)
+
+You'll need to download:
+- `alignments.zip` - Contains word-level time alignments for each speaker
+- Video files for each speaker (`s1.zip`, `s2.zip`, etc.)
+
+After downloading, extract the files and organize them as follows:
+```
+datasets/
+├── videos/
+│   ├── s1/
+│   ├── s2/
+│   └── ...
+└── alignments/
+    ├── s1/
+    ├── s2/
+    └── ...
+```
+
+Note: The dataset is quite large (approximately 16GB), so ensure you have sufficient disk space before downloading.
 
 ## Research Implementation
 
@@ -30,13 +57,6 @@ The architecture consists of:
   - Manually implemented LSTM gates (forget, input, candidate, output)
   - Cell state and hidden state management
 - **Classifier**: Linear layer to map to vocabulary output with softmax activation
-
-## Dataset
-
-The model is trained on a dataset of lip-reading videos and corresponding text alignments, following the methodology described in the paper:
-- Videos are preprocessed to extract RGB frames
-- Text alignments are converted to numeric indices using a custom vocabulary mapping
-- Custom dataset class handles loading and preprocessing of data
 
 ## Training Process
 
@@ -80,6 +100,15 @@ This implementation avoids high-level PyTorch APIs for RNN components, instead b
 - Bidirectional sequence processing as described in the research
 - Memory-efficient training with gradient accumulation
 - Robust error handling to prevent NaN values during training
+
+### Data Preprocessing
+
+The implementation includes specialized data handling:
+- Video frames are extracted and converted to RGB format
+- Frames are normalized to [0,1] range
+- Alignments are processed to extract text and convert to numerical indices 
+- Custom collate function ensures all training samples have the same number of frames (75)
+- A specialized vocabulary mapping for the 28 characters (26 letters, space, and the CTC blank token)
 
 ## Results
 
