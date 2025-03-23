@@ -1,4 +1,4 @@
-# LipNet Implementation
+# LIP Reading with Deep Learning
 
 A custom implementation of the research paper "LipNet: End-to-End Sentence-level Lipreading" with PyTorch, constructed without using high-level APIs.
 
